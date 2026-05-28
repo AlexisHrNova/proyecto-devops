@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proyecto-devops
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: proyecto-devops
+
+  template:
+    metadata:
+      labels:
+        app: proyecto-devops
+
+    spec:
+      containers:
+      - name: web
+        image: proyecto-devops:latest
+        imagePullPolicy: Never
+
+        ports:
+        - containerPort: 80
